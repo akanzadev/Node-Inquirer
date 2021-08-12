@@ -1,0 +1,17 @@
+{
+  "name": "02-consola-interactiva",
+  "version": "1.0.0",
+  "description": "Aplicación de consola interactiva",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jeancarlo Mamani <jeancarlosmamanilingan@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "inquirer": "^8.1.2",
+    "uuid": "^8.3.2"
+  }
+}
