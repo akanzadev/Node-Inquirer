@@ -46,13 +46,34 @@ class Tareas {
       if (completadas && tarea.completadoEn) {
         index++;
         listado +=
-          `${index}.`.green + ` ${tarea.desc} :: ${"Completada".green}\n`;
+          `${index}.`.green + ` ${tarea.desc} :: ${tarea.completadoEn.green}\n`;
       } else if (!completadas && !tarea.completadoEn) {
         index++;
         listado += `${index}.`.green + ` ${tarea.desc} :: ${"Pendiente".red}\n`;
       }
     });
     console.log(listado);
+  }
+
+  borrarTarea(id = "") {
+    if (this._listado[id]) {
+      delete this._listado[id];
+    }
+  }
+
+  toggleCompletadas(ids = []) {
+    ids.forEach((id) => {
+      const tarea = this._listado[id];
+      if (!tarea.completadoEn) {
+        tarea.completadoEn = new Date().toISOString();
+      }
+    });
+
+    this.listadoArr.forEach((tarea) => {
+      if (!ids.includes(tarea.id)) {
+        this._listado[tarea.id].completadoEn = null;
+      }
+    });
   }
 }
 
